@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="javascript.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
 </head>
 <body>
     <div class="calculator">
-        <div class="result">0</div>
+        <div id="result">0</div>
         <div class="keys">
-            <button class="key-operator">+</button>
-            <button class="key-operator">-</button>
-            <button class="key-operator">&times;</button>
-            <button class="key-operator">÷</button>
+            <button class="key-operator" id="add">+</button>
+            <button class="key-operator" id="subtract">-</button>
+            <button class="key-operator" id="multiply">&times;</button>
+            <button class="key-operator" id="divide">÷</button>
             <button class="calculator_key">7</button>
             <button class="calculator_key">8</button>
             <button class="calculator_key">9</button>
@@ -26,10 +25,11 @@
             <button class="calculator_key">2</button>
             <button class="calculator_key">3</button>
             <button class="calculator_key">0</button>
-            <button class="calculator_key">.</button>
-            <button class="calculator_key">AC</button>
-            <button class="key-enter">=</button>
+            <button class="key-decimal">.</button>
+            <button id="key-clear">AC</button>
+            <button id="key-enter">=</button>
         </div>
     </div>
 </body>
+<script src="javascript.js"></script>
 </html>
