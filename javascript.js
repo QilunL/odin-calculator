@@ -77,17 +77,13 @@ for (const operateKey of operateKeys){
 }
 
 const clearKey = document.getElementById('key-clear');
-clearKey.addEventListener('click', function clearAll(){
-    result.innerText = 0;
-    resultValue = 0;
-    x = 0;
-    y = 0;
-    isOperatorClicked = false;
+clearKey.addEventListener('click', function clear(){
+    clearAll();
 })
 
 const enterKey = document.getElementById('key-enter');
 enterKey.addEventListener('click', function calc(){
-    if(result.innerText == 0){
+    if(x == 0 && y == 0){
         result.innerText = 0;
         return;
     }
@@ -104,5 +100,16 @@ enterKey.addEventListener('click', function calc(){
         resultValue2 = 0;
         y = resultValue2;
     }
+    if (isFinite(resultValue) == false){
+        alert("NOOOOOOO");
+        clearAll();
+    }
 })
 
+function clearAll(){
+    result.innerText = 0;
+    resultValue = 0;
+    x = 0;
+    y = 0;
+    isOperatorClicked = false;
+}
