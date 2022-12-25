@@ -2,8 +2,6 @@ const add = (a, b) => a + b;
 const subtract = (a, b) => a -b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
-//const operate = (operator, a, b) => operator(a, b);
-
 function operate(a,b){
     if (operationSign == 'add'){
         return add(a, b);
@@ -21,10 +19,11 @@ let isOperatorClicked = false;
 let operationSign;
 let x = 0;
 let y = 0;
+let y2 = 0;
 let resultValue = 0;
 let resultValue2 = 0;
 function populate(n){
-    if (result.innerText == 0){
+    if (resultValue == 0){
         result.textContent = n;
         resultValue = result.textContent;
         return;
@@ -83,6 +82,7 @@ clearKey.addEventListener('click', function clearAll(){
     resultValue = 0;
     x = 0;
     y = 0;
+    isOperatorClicked = false;
 })
 
 const enterKey = document.getElementById('key-enter');
@@ -91,9 +91,18 @@ enterKey.addEventListener('click', function calc(){
         result.innerText = 0;
         return;
     }
-   resultValue = result.textContent = operate(parseInt(x), parseInt(y));
-   x = resultValue;
-   resultValue2 = 0;
-   y = resultValue2;
-   isOperatorClicked = false;
+    if (isOperatorClicked == true){
+        y2 = y;
+        resultValue = result.textContent = operate(parseInt(x), parseInt(y));
+        x = resultValue;
+        resultValue2 = 0;
+        y = resultValue2;
+        isOperatorClicked = false;
+    } else if (isOperatorClicked == false && operationSign != undefined) {
+        resultValue = result.textContent = operate(parseInt(x), parseInt(y2));
+        x = resultValue;
+        resultValue2 = 0;
+        y = resultValue2;
+    }
 })
+
